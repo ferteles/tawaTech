@@ -29,21 +29,21 @@ export function ServicesSection() {
       overview: "VISÃO GERAL",
       features: "RECURSOS",
       deliverables: "ENTREGÁVEIS",
-      ready: "Pronto para começar?",
+      ready: "Começar um projeto",
       extraDetails: {
         web: {
-          long: "Desenvolvemos ecossistemas digitais robustos utilizando as tecnologias mais modernas do mercado. Nosso foco é criar aplicações que não apenas funcionam perfeitamente, mas que também escalam conforme sua empresa cresce.",
-          features: ["React & Next.js", "Arquitetura Escalável", "SEO Avançado", "Performance Extrema"],
+          long: "Sistemas construídos com tecnologias atuais e arquitetura sólida. Aplicações estáveis, que escalam junto com o negócio.",
+          features: ["React & Next.js", "Arquitetura Escalável", "SEO Avançado", "Otimização de Performance"],
           deliverables: ["Código Fonte Limpo", "Documentação Técnica", "Painel Administrativo", "Integração com APIs"]
         },
         app: {
-          long: "Acreditamos que o design deve servir à função. Criamos interfaces que eliminam o ruído e focam no que realmente importa: a jornada do seu cliente e a conversão do seu negócio.",
+          long: "Design a serviço da função. Interfaces que eliminam ruído e priorizam o que importa: a jornada do cliente e a conversão do negócio.",
           features: ["UI/UX Design", "Design System", "Prototipagem de Alta Fidelidade", "Brand Identity"],
           deliverables: ["Arquivos Figma", "Guia de Estilo", "Protótipo Interativo", "Assets Exportados"]
         },
         metrics: {
-          long: "Não somos apenas desenvolvedores, somos parceiros estratégicos. Analisamos seus processos para identificar gargalos e oportunidades de automação e crescimento digital.",
-          features: ["Análise de Dados", "Automação de Marketing", "Estratégia de Lançamento", "Growth Hacking"],
+          long: "Mais do que desenvolvimento: análise de processos para identificar gargalos e oportunidades de automação e crescimento.",
+          features: ["Análise de Dados", "Automação de Marketing", "Estratégia de Lançamento", "Estratégia de Crescimento"],
           deliverables: ["Relatório Estratégico", "Funis de Vendas", "Configuração de Analytics", "Roadmap de Crescimento"]
         }
       }
@@ -53,21 +53,21 @@ export function ServicesSection() {
       overview: "OVERVIEW",
       features: "FEATURES",
       deliverables: "DELIVERABLES",
-      ready: "Ready to start?",
+      ready: "Start a project",
       extraDetails: {
         web: {
-          long: "We develop robust digital ecosystems using the most modern technologies on the market. Our focus is on creating applications that not only work perfectly but also scale as your company grows.",
-          features: ["React & Next.js", "Scalable Architecture", "Advanced SEO", "Extreme Performance"],
+          long: "Systems built with current technologies and solid architecture. Stable applications that scale along with the business.",
+          features: ["React & Next.js", "Scalable Architecture", "Advanced SEO", "Performance Optimization"],
           deliverables: ["Clean Source Code", "Technical Documentation", "Admin Panel", "API Integration"]
         },
         app: {
-          long: "We believe that design should serve function. We create interfaces that eliminate noise and focus on what really matters: your customer's journey and your business's conversion.",
+          long: "Design in service of function. Interfaces that cut the noise and focus on what matters: the customer journey and business conversion.",
           features: ["UI/UX Design", "Design System", "High-Fidelity Prototyping", "Brand Identity"],
           deliverables: ["Figma Files", "Style Guide", "Interactive Prototype", "Exported Assets"]
         },
         metrics: {
-          long: "We are not just developers; we are strategic partners. We analyze your processes to identify bottlenecks and opportunities for automation and digital growth.",
-          features: ["Data Analysis", "Marketing Automation", "Launch Strategy", "Growth Hacking"],
+          long: "More than development: process analysis to identify bottlenecks and opportunities for automation and growth.",
+          features: ["Data Analysis", "Marketing Automation", "Launch Strategy", "Growth Strategy"],
           deliverables: ["Strategic Report", "Sales Funnels", "Analytics Setup", "Growth Roadmap"]
         }
       }
@@ -77,21 +77,21 @@ export function ServicesSection() {
       overview: "VISIÓN GENERAL",
       features: "CARACTERÍSTICAS",
       deliverables: "ENTREGABLES",
-      ready: "¿Listo para empezar?",
+      ready: "Iniciar un proyecto",
       extraDetails: {
         web: {
-          long: "Desarrollamos ecosistemas digitales robustos utilizando las tecnologías más modernas del mercado. Nuestro enfoque es crear aplicaciones que no solo funcionen perfectamente, sino que también escalen a medida que su empresa crece.",
-          features: ["React & Next.js", "Arquitectura Escalable", "SEO Avanzado", "Rendimiento Extremo"],
+          long: "Sistemas construidos con tecnologías actuales y arquitectura sólida. Aplicaciones estables que escalan junto con el negocio.",
+          features: ["React & Next.js", "Arquitectura Escalable", "SEO Avanzado", "Optimización de Rendimiento"],
           deliverables: ["Código Fuente Limpio", "Documentación Técnica", "Panel de Control", "Integración con APIs"]
         },
         app: {
-          long: "Creemos que el diseño debe servir a la función. Creamos interfaces que eliminan el ruido y se centran en lo que realmente importa: el viaje de su cliente y la conversión de su negocio.",
+          long: "Diseño al servicio de la función. Interfaces que eliminan el ruido y priorizan lo que importa: el recorrido del cliente y la conversión del negocio.",
           features: ["Diseño UI/UX", "Sistema de Diseño", "Prototipado de Alta Fidelidad", "Identidad de Marca"],
           deliverables: ["Archivos Figma", "Guía de Estilo", "Prototipo Interactivo", "Recursos Exportados"]
         },
         metrics: {
-          long: "No somos solo desarrolladores, somos socios estratégicos. Analizamos sus procesos para identificar cuellos de botella y oportunidades de automatización y crecimiento digital.",
-          features: ["Análisis de Datos", "Automatización de Marketing", "Estrategia de Lanzamiento", "Growth Hacking"],
+          long: "Más que desarrollo: análisis de procesos para identificar cuellos de botella y oportunidades de automatización y crecimiento.",
+          features: ["Análisis de Datos", "Automatización de Marketing", "Estrategia de Lanzamiento", "Estrategia de Crecimiento"],
           deliverables: ["Informe Estratégico", "Embudos de Venta", "Configuración de Analytics", "Hoja de Ruta de Crecimiento"]
         }
       }

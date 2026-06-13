@@ -32,13 +32,11 @@ export function ProjectsSection() {
     }
   }, [selectedProject])
 
-  const projects: Project[] = [
+  const projectsBase = [
     {
       id: 1,
       title: 'NexPay Ecosystem',
-      category: 'Fintech',
       year: '2024',
-      description: 'Infraestrutura de pagamentos escalável focada em microtransações e segurança bancária. Desenvolvemos o core bancário e a interface do dashboard administrativo.',
       image: 'https://images.unsplash.com/photo-1551288049-bbbda5366fd9?auto=format&fit=crop&q=80&w=2000',
       tags: ['Next.js', 'PostgreSQL', 'Redis'],
       links: [
@@ -49,9 +47,7 @@ export function ProjectsSection() {
     {
       id: 2,
       title: 'Alpha Banking',
-      category: 'Fintech',
       year: '2023',
-      description: 'Solução white-label para bancos digitais, permitindo a criação rápida de contas e cartões com conformidade total às normas do BACEN.',
       image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=2000',
       tags: ['React Native', 'Node.js', 'AWS'],
       links: [
@@ -62,9 +58,7 @@ export function ProjectsSection() {
     {
       id: 3,
       title: 'Flux SaaS Engine',
-      category: 'SaaS',
       year: '2024',
-      description: 'Plataforma de automação de workflow para times de design e engenharia, integrando ferramentas de gestão e deploy contínuo.',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000',
       tags: ['React', 'Go', 'Kubernetes'],
       links: [
@@ -75,9 +69,7 @@ export function ProjectsSection() {
     {
       id: 4,
       title: 'Omni CRM',
-      category: 'SaaS',
       year: '2023',
-      description: 'Sistema de gerenciamento de clientes focado em retenção via análise preditiva de comportamento baseada em IA.',
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2000',
       tags: ['Python', 'React', 'TensorFlow'],
       links: [
@@ -87,9 +79,7 @@ export function ProjectsSection() {
     {
       id: 5,
       title: 'Retail Flow',
-      category: 'Varejo',
       year: '2024',
-      description: 'Ecossistema completo de e-commerce com gestão de estoque em tempo real sincronizada entre lojas físicas e virtuais.',
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000',
       tags: ['Next.js', 'Shopify', 'Node.js'],
       links: [
@@ -100,9 +90,7 @@ export function ProjectsSection() {
     {
       id: 6,
       title: 'Market Pulse',
-      category: 'Varejo',
       year: '2023',
-      description: 'Dashboard de BI para grandes varejistas, consolidando dados de vendas de múltiplos canais em uma interface intuitiva e performante.',
       image: 'https://images.unsplash.com/photo-1551288049-bbda5366fd9?auto=format&fit=crop&q=80&w=2000',
       tags: ['D3.js', 'React', 'BigQuery'],
       links: [
@@ -111,6 +99,12 @@ export function ProjectsSection() {
       ]
     }
   ]
+
+  const projects: Project[] = projectsBase.map((project, i) => ({
+    ...project,
+    category: t.projects.items[i].category,
+    description: t.projects.items[i].description,
+  }))
 
   return (
     <section id="work" className="min-h-screen py-24 bg-black text-white selection:bg-[#FF0000]">

@@ -14,16 +14,16 @@ export const translations = {
       title: ['S', 'T', 'U', 'D', 'I', 'O'],
       subtitle: [
         'Engenharia de software',
-        'Sistemas de alta performance',
+        'Sistemas rápidos e escaláveis',
         'Arquitetura técnica, função clara'
       ],
       ctaWork: 'Ver Projetos',
-      ctaContact: 'Falar Conosco',
+      ctaContact: 'Entrar em Contato',
     },
     about: {
       title: 'SOBRE',
-      subtitle: 'Operamos na fronteira entre engenharia e produto. Desenvolvemos soluções técnicas que resolvem problemas reais.',
-      description: 'Nosso foco está em construir ecossistemas digitais que unem estabilidade técnica e usabilidade. Acreditamos que a tecnologia deve ser invisível e eficiente — onde a complexidade do código se traduz em simplicidade para o usuário final. Entregamos software pronto para escala.',
+      subtitle: 'Engenharia e produto, integrados. Soluções técnicas para problemas específicos.',
+      description: 'O foco está em sistemas que combinam estabilidade técnica e usabilidade. A complexidade fica no código, não na experiência de quem usa. Software construído para escalar.',
       stats: {
         years: 'Anos de mercado',
         projects: 'Projetos entregues'
@@ -32,8 +32,8 @@ export const translations = {
     skills: {
       title: 'SKILLS',
       items: {
-        react: 'Stack principal para sistemas de alta performance',
-        typescript: 'Garantia de segurança e manutenibilidade',
+        react: 'Base para interfaces e sistemas escaláveis',
+        typescript: 'Tipagem segura e código manutenível',
         node: 'Infraestrutura de back-end escalável',
         uiux: 'Foco em usabilidade e design systems',
         apis: 'Conectividade e fluxo de dados'
@@ -41,24 +41,24 @@ export const translations = {
     },
     services: {
       title: 'SERVIÇOS',
-      subtitle: 'Soluções técnicas de alta performance. Onde a engenharia de software encontra o design minimalista.',
+      subtitle: 'Soluções técnicas que unem engenharia de software e design minimalista.',
       items: [
         {
           id: 'web',
           title: 'Desenvolvimento Web',
-          description: 'Engenharia de sistemas e interfaces de alta performance. Desenvolvemos soluções escaláveis que priorizam a velocidade de carregamento e a estabilidade técnica.',
+          description: 'Engenharia de sistemas e interfaces. Soluções escaláveis com foco em velocidade de carregamento e estabilidade técnica.',
           tags: ['React', 'Next.js', 'Infraestrutura']
         },
         {
           id: 'app',
           title: 'Soluções Mobile',
-          description: 'Desenvolvimento de aplicativos focados em usabilidade e performance. Criamos experiências móveis nativas e híbridas que atendem aos requisitos técnicos.',
+          description: 'Aplicativos focados em usabilidade e performance. Experiências móveis nativas e híbridas, dentro dos requisitos técnicos.',
           tags: ['iOS', 'Android', 'Cross-platform']
         },
         {
           id: 'metrics',
           title: 'Análise de Dados',
-          description: 'Implementação de arquitetura de dados e métricas de uso. Monitoramos o comportamento do usuário para fornecer diagnósticos técnicos precisos.',
+          description: 'Arquitetura de dados e métricas de uso. Monitoramento de comportamento para diagnósticos técnicos precisos.',
           tags: ['Analytics', 'GTM', 'BI']
         }
       ]
@@ -76,12 +76,20 @@ export const translations = {
         demo: 'Demo ao vivo',
         store: 'Loja ao vivo',
         github: 'GitHub'
-      }
+      },
+      items: [
+        { category: 'Fintech', description: 'Infraestrutura de pagamentos escalável, focada em microtransações e segurança bancária. Inclui o core bancário e a interface do dashboard administrativo.' },
+        { category: 'Fintech', description: 'Solução white-label para bancos digitais, permitindo a criação rápida de contas e cartões com conformidade total às normas do BACEN.' },
+        { category: 'SaaS', description: 'Plataforma de automação de workflow para times de design e engenharia, integrando ferramentas de gestão e deploy contínuo.' },
+        { category: 'SaaS', description: 'Sistema de gerenciamento de clientes focado em retenção via análise preditiva de comportamento baseada em IA.' },
+        { category: 'Varejo', description: 'Plataforma de e-commerce com gestão de estoque em tempo real, sincronizada entre lojas físicas e virtuais.' },
+        { category: 'Varejo', description: 'Dashboard de BI para grandes varejistas, consolidando dados de vendas de múltiplos canais em uma interface intuitiva e performante.' }
+      ]
     },
     contact: {
       title: 'VAMOS',
       highlight: 'CONVERSAR',
-      subtitle: 'Estamos disponíveis para novos projetos, consultoria técnica ou parcerias estratégicas.',
+      subtitle: 'Para novos projetos, consultoria técnica ou parcerias.',
       footer: '© 2026 Studio. Engenharia de Software.',
       tag: 'Feito sem template'
     }
@@ -99,16 +107,16 @@ export const translations = {
       title: ['S', 'T', 'U', 'D', 'I', 'O'],
       subtitle: [
         'Software engineering',
-        'High performance systems',
+        'Fast, scalable systems',
         'Technical architecture, clear function'
       ],
       ctaWork: 'View Work',
-      ctaContact: 'Contact Us',
+      ctaContact: 'Get in Touch',
     },
     about: {
       title: 'ABOUT',
-      subtitle: 'We operate at the intersection of engineering and product. We build technical solutions that solve real problems.',
-      description: 'Our focus is on building digital ecosystems that unite technical stability and usability. We believe technology should be invisible and efficient — where code complexity translates into simplicity for the end user. We deliver software ready to scale.',
+      subtitle: 'Engineering and product, integrated. Technical solutions for specific problems.',
+      description: 'The focus is on systems that combine technical stability and usability. Complexity stays in the code, not in the experience of the people using it. Software built to scale.',
       stats: {
         years: 'Years in market',
         projects: 'Projects delivered'
@@ -117,8 +125,8 @@ export const translations = {
     skills: {
       title: 'SKILLS',
       items: {
-        react: 'Core stack for high performance systems',
-        typescript: 'Security and maintainability assurance',
+        react: 'Foundation for scalable interfaces and systems',
+        typescript: 'Type safety and maintainable code',
         node: 'Scalable back-end infrastructure',
         uiux: 'Focus on usability and design systems',
         apis: 'Connectivity and data flow'
@@ -126,24 +134,24 @@ export const translations = {
     },
     services: {
       title: 'SERVICES',
-      subtitle: 'High-performance technical solutions. Where software engineering meets minimalist design.',
+      subtitle: 'Technical solutions that combine software engineering and minimalist design.',
       items: [
         {
           id: 'web',
           title: 'Web Development',
-          description: 'Engineering high-performance systems and interfaces. We develop scalable solutions prioritizing load speed and technical stability.',
+          description: 'Engineering systems and interfaces. Scalable solutions focused on load speed and technical stability.',
           tags: ['React', 'Next.js', 'Infrastructure']
         },
         {
           id: 'app',
           title: 'Mobile Solutions',
-          description: 'App development focused on usability and performance. We create native and hybrid mobile experiences that meet technical requirements.',
+          description: 'Apps focused on usability and performance. Native and hybrid mobile experiences, within technical requirements.',
           tags: ['iOS', 'Android', 'Cross-platform']
         },
         {
           id: 'metrics',
           title: 'Data Analytics',
-          description: 'Implementation of data architecture and usage metrics. We monitor user behavior to provide precise technical diagnostics.',
+          description: 'Data architecture and usage metrics. Behavior monitoring for precise technical diagnostics.',
           tags: ['Analytics', 'GTM', 'BI']
         }
       ]
@@ -161,12 +169,20 @@ export const translations = {
         demo: 'Live demo',
         store: 'Live store',
         github: 'GitHub'
-      }
+      },
+      items: [
+        { category: 'Fintech', description: 'Scalable payment infrastructure focused on microtransactions and banking-grade security. Includes the banking core and the admin dashboard interface.' },
+        { category: 'Fintech', description: 'White-label solution for digital banks, enabling fast creation of accounts and cards in full compliance with Brazilian Central Bank (BACEN) regulations.' },
+        { category: 'SaaS', description: 'Workflow automation platform for design and engineering teams, integrating management tools and continuous deployment.' },
+        { category: 'SaaS', description: 'Customer management system focused on retention through AI-based predictive behavior analysis.' },
+        { category: 'Retail', description: 'E-commerce platform with real-time inventory management, synced between physical and online stores.' },
+        { category: 'Retail', description: 'BI dashboard for large retailers, consolidating multi-channel sales data into an intuitive, fast interface.' }
+      ]
     },
     contact: {
       title: 'LET\'S',
       highlight: 'TALK',
-      subtitle: 'We are available for new projects, technical consulting, or strategic partnerships.',
+      subtitle: 'For new projects, technical consulting, or partnerships.',
       footer: '© 2026 Studio. Software Engineering.',
       tag: 'Made without template'
     }
@@ -184,16 +200,16 @@ export const translations = {
       title: ['S', 'T', 'U', 'D', 'I', 'O'],
       subtitle: [
         'Ingeniería de software',
-        'Sistemas de alto rendimiento',
+        'Sistemas rápidos y escalables',
         'Arquitectura técnica, función clara'
       ],
       ctaWork: 'Ver Proyectos',
-      ctaContact: 'Contactarnos',
+      ctaContact: 'Contactar',
     },
     about: {
       title: 'SOBRE',
-      subtitle: 'Operamos en la frontera entre ingeniería y producto. Desarrollamos soluciones técnicas que resuelven problemas reales.',
-      description: 'Nuestro enfoque es construir ecosistemas digitales que unan estabilidad técnica y usabilidad. Creemos que la tecnología debe ser invisible y eficiente — donde la complejidad del código se traduce en simplicidad para el usuario final. Entregamos software listo para escalar.',
+      subtitle: 'Ingeniería y producto, integrados. Soluciones técnicas para problemas específicos.',
+      description: 'El foco está en sistemas que combinan estabilidad técnica y usabilidad. La complejidad queda en el código, no en la experiencia de quien lo usa. Software construido para escalar.',
       stats: {
         years: 'Años en mercado',
         projects: 'Proyectos entregados'
@@ -202,8 +218,8 @@ export const translations = {
     skills: {
       title: 'SKILLS',
       items: {
-        react: 'Stack principal para sistemas de alto rendimiento',
-        typescript: 'Garantía de seguridad y mantenibilidad',
+        react: 'Base para interfaces y sistemas escalables',
+        typescript: 'Tipado seguro y código mantenible',
         node: 'Infraestructura back-end escalable',
         uiux: 'Enfoque en usabilidad y sistemas de diseño',
         apis: 'Conectividad y flujo de datos'
@@ -211,24 +227,24 @@ export const translations = {
     },
     services: {
       title: 'SERVICIOS',
-      subtitle: 'Soluciones técnicas de alto rendimiento. Donde la ingeniería de software se encuentra con el diseño minimalista.',
+      subtitle: 'Soluciones técnicas que unen ingeniería de software y diseño minimalista.',
       items: [
         {
           id: 'web',
           title: 'Desarrollo Web',
-          description: 'Ingeniería de sistemas e interfaces de alto rendimiento. Desarrollamos soluciones escalables priorizando velocidad y estabilidad técnica.',
+          description: 'Ingeniería de sistemas e interfaces. Soluciones escalables enfocadas en velocidad de carga y estabilidad técnica.',
           tags: ['React', 'Next.js', 'Infraestructura']
         },
         {
           id: 'app',
           title: 'Soluciones Móviles',
-          description: 'Desarrollo de aplicaciones enfocadas en usabilidad y rendimiento. Creamos experiencias móviles nativas e híbridas que cumplen requisitos.',
+          description: 'Aplicaciones enfocadas en usabilidad y rendimiento. Experiencias móviles nativas e híbridas, dentro de los requisitos técnicos.',
           tags: ['iOS', 'Android', 'Cross-platform']
         },
         {
           id: 'metrics',
           title: 'Análisis de Datos',
-          description: 'Implementación de arquitectura de datos y métricas de uso. Monitoreamos el comportamiento del usuario para diagnósticos técnicos.',
+          description: 'Arquitectura de datos y métricas de uso. Monitoreo de comportamiento para diagnósticos técnicos precisos.',
           tags: ['Analytics', 'GTM', 'BI']
         }
       ]
@@ -246,12 +262,20 @@ export const translations = {
         demo: 'Demo en vivo',
         store: 'Tienda en vivo',
         github: 'GitHub'
-      }
+      },
+      items: [
+        { category: 'Fintech', description: 'Infraestructura de pagos escalable, enfocada en microtransacciones y seguridad bancaria. Incluye el core bancario y la interfaz del panel administrativo.' },
+        { category: 'Fintech', description: 'Solución white-label para bancos digitales, que permite la creación rápida de cuentas y tarjetas con conformidad total a las normas del Banco Central de Brasil (BACEN).' },
+        { category: 'SaaS', description: 'Plataforma de automatización de flujos de trabajo para equipos de diseño e ingeniería, integrando herramientas de gestión y despliegue continuo.' },
+        { category: 'SaaS', description: 'Sistema de gestión de clientes enfocado en la retención mediante análisis predictivo de comportamiento basado en IA.' },
+        { category: 'Retail', description: 'Plataforma de e-commerce con gestión de inventario en tiempo real, sincronizada entre tiendas físicas y online.' },
+        { category: 'Retail', description: 'Panel de BI para grandes minoristas, que consolida datos de ventas de múltiples canales en una interfaz intuitiva y rápida.' }
+      ]
     },
     contact: {
       title: 'VAMOS A',
       highlight: 'HABLAR',
-      subtitle: 'Estamos disponibles para nuevos proyectos, consultoría técnica o asociaciones estratégicas.',
+      subtitle: 'Para nuevos proyectos, consultoría técnica o alianzas.',
       footer: '© 2026 Studio. Ingeniería de Software.',
       tag: 'Hecho sin plantilla'
     }
