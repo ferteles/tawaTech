@@ -117,7 +117,7 @@ export function Navigation() {
     >
       <div className="w-full px-6 md:px-12 flex items-center justify-between gap-4 md:gap-8 lg:gap-12">
         {/* Logo - Shrinkable on small screens if needed */}
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <button
             onClick={() => scrollToSection('home')}
             className="group relative z-50"
@@ -172,7 +172,7 @@ export function Navigation() {
         </nav>
 
         {/* Language & Mobile Toggle */}
-        <div className="flex items-center gap-4 md:gap-8 flex-shrink-0">
+        <div className="flex items-center gap-4 md:gap-8 shrink-0">
           {/* Language Switcher */}
           <div className="relative hidden md:block">
             <button 

@@ -5,7 +5,7 @@ export const translations = {
     nav: {
       home: 'INÍCIO',
       about: 'SOBRE',
-      skills: 'HABILIDADES',
+      skills: 'SKILLS',
       services: 'SERVIÇOS',
       work: 'PROJETOS',
       contact: 'CONTATO',
@@ -15,15 +15,17 @@ export const translations = {
       subtitle: [
         'Engenharia de software',
         'Sistemas rápidos e escaláveis',
-        'Arquitetura técnica, função clara'
+      
       ],
       ctaWork: 'Ver Projetos',
       ctaContact: 'Entrar em Contato',
     },
     about: {
       title: 'SOBRE',
+      headingMain: 'Elegância,',
+      headingAccent: 'visão estratégica.',
       subtitle: 'Engenharia e produto, integrados. Soluções técnicas para problemas específicos.',
-      description: 'O foco está em sistemas que combinam estabilidade técnica e usabilidade. A complexidade fica no código, não na experiência de quem usa. Software construído para escalar.',
+      description: 'Foco em sistemas que combinam estabilidade técnica e usabilidade. A complexidade fica no código, não na experiência de quem usa. Software construído para escalar.',
       stats: {
         years: 'Anos de mercado',
         projects: 'Projetos entregues'
@@ -41,7 +43,7 @@ export const translations = {
     },
     services: {
       title: 'SERVIÇOS',
-      subtitle: 'Soluções técnicas que unem engenharia de software e design minimalista.',
+      subtitle: 'Soluções que unem engenharia de software e design minimalista.',
       items: [
         {
           id: 'web',
@@ -90,8 +92,33 @@ export const translations = {
       title: 'VAMOS',
       highlight: 'CONVERSAR',
       subtitle: 'Para novos projetos, consultoria técnica ou parcerias.',
-      footer: '© 2026 Studio. Engenharia de Software.',
+      footer: '© 2026 - Tawa Tinga Tecnologia e Cultura LTDA CNPJ: 13.059.129/0001-17 .',
       tag: 'Feito sem template'
+    },
+    servicesModal: {
+      close: 'FECHAR',
+      overview: 'VISÃO GERAL',
+      features: 'RECURSOS',
+      deliverables: 'ENTREGÁVEIS',
+      ready: 'Começar um projeto',
+      learnMore: 'Saiba mais',
+      details: {
+        web: {
+          long: 'Sistemas construídos com tecnologias atuais e arquitetura sólida. Aplicações estáveis, que escalam junto com o negócio.',
+          features: ['React & Next.js', 'Arquitetura Escalável', 'SEO Avançado', 'Otimização de Performance'],
+          deliverables: ['Código Fonte Limpo', 'Documentação', 'Painel Administrativo', 'Integração com APIs']
+        },
+        app: {
+          long: 'Design a serviço da função. Interfaces que eliminam ruído e priorizam o que importa: a jornada do cliente e a conversão do negócio.',
+          features: ['UI/UX Design', 'Design System', 'Prototipagem de Alta Fidelidade', 'Brand Identity'],
+          deliverables: ['Arquivos Figma', 'Guia de Estilo', 'Protótipo Interativo', 'Assets Exportados']
+        },
+        metrics: {
+          long: 'Mais do que desenvolvimento: análise de processos para identificar gargalos e oportunidades de automação e crescimento.',
+          features: ['Análise de Dados', 'Automação de Marketing', 'Estratégia de Lançamento', 'Estratégia de Crescimento'],
+          deliverables: ['Relatório Estratégico', 'Funis de Vendas', 'Configuração de Analytics', 'Roadmap de Crescimento']
+        }
+      }
     }
   },
   en: {
@@ -108,15 +135,16 @@ export const translations = {
       subtitle: [
         'Software engineering',
         'Fast, scalable systems',
-        'Technical architecture, clear function'
       ],
       ctaWork: 'View Work',
       ctaContact: 'Get in Touch',
     },
     about: {
       title: 'ABOUT',
+      headingMain: 'Elegance,',
+      headingAccent: 'strategic vision.',
       subtitle: 'Engineering and product, integrated. Technical solutions for specific problems.',
-      description: 'The focus is on systems that combine technical stability and usability. Complexity stays in the code, not in the experience of the people using it. Software built to scale.',
+      description: 'Focus on systems that combine technical stability and usability. Complexity stays in the code, not in the experience of the people using it. Software built to scale.',
       stats: {
         years: 'Years in market',
         projects: 'Projects delivered'
@@ -134,7 +162,7 @@ export const translations = {
     },
     services: {
       title: 'SERVICES',
-      subtitle: 'Technical solutions that combine software engineering and minimalist design.',
+      subtitle: 'Solutions that combine software engineering and minimalist design.',
       items: [
         {
           id: 'web',
@@ -183,8 +211,33 @@ export const translations = {
       title: 'LET\'S',
       highlight: 'TALK',
       subtitle: 'For new projects, technical consulting, or partnerships.',
-      footer: '© 2026 Studio. Software Engineering.',
+      footer: '© 2026 - Tawa Tinga Tecnologia e Cultura LTDA CNPJ: 13.059.129/0001-17 .',
       tag: 'Made without template'
+    },
+    servicesModal: {
+      close: 'CLOSE',
+      overview: 'OVERVIEW',
+      features: 'FEATURES',
+      deliverables: 'DELIVERABLES',
+      ready: 'Start a project',
+      learnMore: 'Learn more',
+      details: {
+        web: {
+          long: 'Systems built with current technologies and solid architecture. Stable applications that scale along with the business.',
+          features: ['React & Next.js', 'Scalable Architecture', 'Advanced SEO', 'Performance Optimization'],
+          deliverables: ['Clean Source Code', 'Technical Documentation', 'Admin Panel', 'API Integration']
+        },
+        app: {
+          long: 'Design in service of function. Interfaces that cut the noise and focus on what matters: the customer journey and business conversion.',
+          features: ['UI/UX Design', 'Design System', 'High-Fidelity Prototyping', 'Brand Identity'],
+          deliverables: ['Figma Files', 'Style Guide', 'Interactive Prototype', 'Exported Assets']
+        },
+        metrics: {
+          long: 'More than development: process analysis to identify bottlenecks and opportunities for automation and growth.',
+          features: ['Data Analysis', 'Marketing Automation', 'Launch Strategy', 'Growth Strategy'],
+          deliverables: ['Strategic Report', 'Sales Funnels', 'Analytics Setup', 'Growth Roadmap']
+        }
+      }
     }
   },
   es: {
@@ -201,15 +254,16 @@ export const translations = {
       subtitle: [
         'Ingeniería de software',
         'Sistemas rápidos y escalables',
-        'Arquitectura técnica, función clara'
       ],
       ctaWork: 'Ver Proyectos',
       ctaContact: 'Contactar',
     },
     about: {
       title: 'SOBRE',
+      headingMain: 'Elegancia,',
+      headingAccent: 'visión estratégica.',
       subtitle: 'Ingeniería y producto, integrados. Soluciones técnicas para problemas específicos.',
-      description: 'El foco está en sistemas que combinan estabilidad técnica y usabilidad. La complejidad queda en el código, no en la experiencia de quien lo usa. Software construido para escalar.',
+      description: 'Foco en sistemas que combinan estabilidad técnica y usabilidad. La complejidad queda en el código, no en la experiencia de quien lo usa. Software construido para escalar.',
       stats: {
         years: 'Años en mercado',
         projects: 'Proyectos entregados'
@@ -227,7 +281,7 @@ export const translations = {
     },
     services: {
       title: 'SERVICIOS',
-      subtitle: 'Soluciones técnicas que unen ingeniería de software y diseño minimalista.',
+      subtitle: 'Soluciones que unen ingeniería de software y diseño minimalista.',
       items: [
         {
           id: 'web',
@@ -276,8 +330,33 @@ export const translations = {
       title: 'VAMOS A',
       highlight: 'HABLAR',
       subtitle: 'Para nuevos proyectos, consultoría técnica o alianzas.',
-      footer: '© 2026 Studio. Ingeniería de Software.',
+      footer: '© 2026 - Tawa Tinga Tecnologia e Cultura LTDA CNPJ: 13.059.129/0001-17 .',
       tag: 'Hecho sin plantilla'
+    },
+    servicesModal: {
+      close: 'CERRAR',
+      overview: 'VISIÓN GENERAL',
+      features: 'CARACTERÍSTICAS',
+      deliverables: 'ENTREGABLES',
+      ready: 'Iniciar un proyecto',
+      learnMore: 'Saber más',
+      details: {
+        web: {
+          long: 'Sistemas construidos con tecnologías actuales y arquitectura sólida. Aplicaciones estables que escalan junto con el negocio.',
+          features: ['React & Next.js', 'Arquitectura Escalable', 'SEO Avanzado', 'Optimización de Rendimiento'],
+          deliverables: ['Código Fuente Limpio', 'Documentación Técnica', 'Panel de Control', 'Integración con APIs']
+        },
+        app: {
+          long: 'Diseño al servicio de la función. Interfaces que eliminan el ruido y priorizan lo que importa: el recorrido del cliente y la conversión del negocio.',
+          features: ['Diseño UI/UX', 'Sistema de Diseño', 'Prototipado de Alta Fidelidad', 'Identidad de Marca'],
+          deliverables: ['Archivos Figma', 'Guía de Estilo', 'Prototipo Interactivo', 'Recursos Exportados']
+        },
+        metrics: {
+          long: 'Más que desarrollo: análisis de procesos para identificar cuellos de botella y oportunidades de automatización y crecimiento.',
+          features: ['Análisis de Datos', 'Automatización de Marketing', 'Estrategia de Lanzamiento', 'Estrategia de Crecimiento'],
+          deliverables: ['Informe Estratégico', 'Embudos de Venta', 'Configuración de Analytics', 'Hoja de Ruta de Crecimiento']
+        }
+      }
     }
   }
 };

@@ -6,7 +6,7 @@ import { Code2, Smartphone, BarChart3, ArrowRight, X, Zap } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
 export function ServicesSection() {
-  const { t, language } = useLanguage()
+  const { t } = useLanguage()
   const [selectedService, setSelectedService] = useState<any | null>(null)
 
   useEffect(() => {
@@ -23,82 +23,7 @@ export function ServicesSection() {
     { ...t.services.items[2], icon: BarChart3 },
   ]
 
-  const modalContent = {
-    pt: {
-      close: "FECHAR",
-      overview: "VISÃO GERAL",
-      features: "RECURSOS",
-      deliverables: "ENTREGÁVEIS",
-      ready: "Começar um projeto",
-      extraDetails: {
-        web: {
-          long: "Sistemas construídos com tecnologias atuais e arquitetura sólida. Aplicações estáveis, que escalam junto com o negócio.",
-          features: ["React & Next.js", "Arquitetura Escalável", "SEO Avançado", "Otimização de Performance"],
-          deliverables: ["Código Fonte Limpo", "Documentação Técnica", "Painel Administrativo", "Integração com APIs"]
-        },
-        app: {
-          long: "Design a serviço da função. Interfaces que eliminam ruído e priorizam o que importa: a jornada do cliente e a conversão do negócio.",
-          features: ["UI/UX Design", "Design System", "Prototipagem de Alta Fidelidade", "Brand Identity"],
-          deliverables: ["Arquivos Figma", "Guia de Estilo", "Protótipo Interativo", "Assets Exportados"]
-        },
-        metrics: {
-          long: "Mais do que desenvolvimento: análise de processos para identificar gargalos e oportunidades de automação e crescimento.",
-          features: ["Análise de Dados", "Automação de Marketing", "Estratégia de Lançamento", "Estratégia de Crescimento"],
-          deliverables: ["Relatório Estratégico", "Funis de Vendas", "Configuração de Analytics", "Roadmap de Crescimento"]
-        }
-      }
-    },
-    en: {
-      close: "CLOSE",
-      overview: "OVERVIEW",
-      features: "FEATURES",
-      deliverables: "DELIVERABLES",
-      ready: "Start a project",
-      extraDetails: {
-        web: {
-          long: "Systems built with current technologies and solid architecture. Stable applications that scale along with the business.",
-          features: ["React & Next.js", "Scalable Architecture", "Advanced SEO", "Performance Optimization"],
-          deliverables: ["Clean Source Code", "Technical Documentation", "Admin Panel", "API Integration"]
-        },
-        app: {
-          long: "Design in service of function. Interfaces that cut the noise and focus on what matters: the customer journey and business conversion.",
-          features: ["UI/UX Design", "Design System", "High-Fidelity Prototyping", "Brand Identity"],
-          deliverables: ["Figma Files", "Style Guide", "Interactive Prototype", "Exported Assets"]
-        },
-        metrics: {
-          long: "More than development: process analysis to identify bottlenecks and opportunities for automation and growth.",
-          features: ["Data Analysis", "Marketing Automation", "Launch Strategy", "Growth Strategy"],
-          deliverables: ["Strategic Report", "Sales Funnels", "Analytics Setup", "Growth Roadmap"]
-        }
-      }
-    },
-    es: {
-      close: "CERRAR",
-      overview: "VISIÓN GENERAL",
-      features: "CARACTERÍSTICAS",
-      deliverables: "ENTREGABLES",
-      ready: "Iniciar un proyecto",
-      extraDetails: {
-        web: {
-          long: "Sistemas construidos con tecnologías actuales y arquitectura sólida. Aplicaciones estables que escalan junto con el negocio.",
-          features: ["React & Next.js", "Arquitectura Escalable", "SEO Avanzado", "Optimización de Rendimiento"],
-          deliverables: ["Código Fuente Limpio", "Documentación Técnica", "Panel de Control", "Integración con APIs"]
-        },
-        app: {
-          long: "Diseño al servicio de la función. Interfaces que eliminan el ruido y priorizan lo que importa: el recorrido del cliente y la conversión del negocio.",
-          features: ["Diseño UI/UX", "Sistema de Diseño", "Prototipado de Alta Fidelidad", "Identidad de Marca"],
-          deliverables: ["Archivos Figma", "Guía de Estilo", "Prototipo Interactivo", "Recursos Exportados"]
-        },
-        metrics: {
-          long: "Más que desarrollo: análisis de procesos para identificar cuellos de botella y oportunidades de automatización y crecimiento.",
-          features: ["Análisis de Datos", "Automatización de Marketing", "Estrategia de Lanzamiento", "Estrategia de Crecimiento"],
-          deliverables: ["Informe Estratégico", "Embudos de Venta", "Configuración de Analytics", "Hoja de Ruta de Crecimiento"]
-        }
-      }
-    }
-  }
-
-  const mc = modalContent[language as keyof typeof modalContent]
+  const mc = t.servicesModal
 
   return (
     <section id="services" className="min-h-screen py-24 bg-black text-white relative overflow-hidden">
@@ -159,7 +84,7 @@ export function ServicesSection() {
                 <motion.div
                   className="flex items-center gap-3 text-xs tracking-widest uppercase font-bold text-white/40 group-hover:text-[#FF0000] transition-colors"
                 >
-                  {language === 'pt' ? 'Saiba mais' : language === 'es' ? 'Saber más' : 'Learn more'} <ArrowRight className="w-4 h-4" />
+                  {t.servicesModal.learnMore} <ArrowRight className="w-4 h-4" />
                 </motion.div>
               </motion.div>
             )
@@ -170,7 +95,7 @@ export function ServicesSection() {
       {/* Modal Section */}
       <AnimatePresence>
         {selectedService && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+          <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -206,14 +131,14 @@ export function ServicesSection() {
                     <div>
                       <h5 className="text-[10px] tracking-[0.4em] text-[#FF0000] mb-4 font-bold uppercase">{mc.overview}</h5>
                       <p className="text-base md:text-lg text-white/80 leading-relaxed font-light italic">
-                        "{mc.extraDetails[selectedService.id as keyof typeof mc.extraDetails].long}"
+                        "{mc.details[selectedService.id as keyof typeof mc.details].long}"
                       </p>
                     </div>
                     
                     <div className="pt-8">
                       <h5 className="text-[10px] tracking-[0.4em] text-[#FF0000] mb-6 font-bold uppercase">{mc.features}</h5>
                       <ul className="grid grid-cols-1 gap-4">
-                        {mc.extraDetails[selectedService.id as keyof typeof mc.extraDetails].features.map((feature: string, i: number) => (
+                        {mc.details[selectedService.id as keyof typeof mc.details].features.map((feature: string, i: number) => (
                           <li key={i} className="flex items-center gap-3 text-sm text-white/60">
                             <div className="w-1.5 h-1.5 bg-[#FF0000] rotate-45" />
                             {feature}
@@ -226,7 +151,7 @@ export function ServicesSection() {
                   <div className="bg-white/5 p-8 border border-white/5">
                     <h5 className="text-[10px] tracking-[0.4em] text-[#FF0000] mb-8 font-bold uppercase">{mc.deliverables}</h5>
                     <div className="space-y-6">
-                      {mc.extraDetails[selectedService.id as keyof typeof mc.extraDetails].deliverables.map((item: string, i: number) => (
+                      {mc.details[selectedService.id as keyof typeof mc.details].deliverables.map((item: string, i: number) => (
                         <div key={i} className="group flex flex-col gap-1">
                           <span className="text-white/40 text-[10px] tracking-widest uppercase">0{i + 1}</span>
                           <span className="text-white text-sm font-medium tracking-wider">{item}</span>
@@ -249,7 +174,7 @@ export function ServicesSection() {
       </AnimatePresence>
 
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#FF0000]/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-[#FF0000]/5 to-transparent pointer-events-none" />
     </section>
   )
 }

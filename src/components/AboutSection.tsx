@@ -22,15 +22,15 @@ export function AboutSection() {
               ))}
             </h2>
             <div className="flex flex-col gap-6 overflow-hidden">
-              <motion.p 
+              <motion.p
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl leading-[1.1] tracking-tight" style={{ fontWeight: 800 }}
               >
-                Engenharia técnica, <br />
-                <span className="text-white/40 italic">visão estratégica.</span>
+                {t.about.headingMain} <br />
+                <span className="text-white/40 italic">{t.about.headingAccent}</span>
               </motion.p>
               <motion.div 
                 initial={{ width: 0 }}
@@ -75,7 +75,7 @@ export function AboutSection() {
               </div>
               <div className="border-l-2 border-[#FF0000] pl-6">
                 <div className="text-4xl mb-2" style={{ fontWeight: 900 }}>
-                  50+
+                  100+
                 </div>
                 <div className="text-xs tracking-widest text-white/40 uppercase">
                   {t.about.stats.projects}

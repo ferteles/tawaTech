@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { ArrowUpRight, Mail, Github, Linkedin, MessageCircle } from 'lucide-react'
+import { ArrowUpRight, Mail, Github, Linkedin, MessageCircle, Star } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
 export function ContactSection() {
@@ -125,7 +125,7 @@ export function ContactSection() {
               <LogoSVG className="h-6 w-auto" />
               <p>{t.contact.footer.replace('Studio.', '')}</p>
             </div>
-            <p>{t.contact.tag}</p>
+            <Star className="w-4 h-4 fill-[#FF0000] text-[#FF0000]" />
           </motion.div>
         </div>
       </div>
