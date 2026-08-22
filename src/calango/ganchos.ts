@@ -3,90 +3,116 @@ import { useEffect } from "react";
 const ESCALONAMENTO = 90; // ms entre elementos de um mesmo grupo
 
 /**
- * Revela os elementos [data-revela] quando entram na viewport.
- * O valor de data-revela é o índice do elemento no grupo e vira atraso.
+ * Efeitos de rolagem da página, na mesma configuração do site original:
+ * revelação dos blocos, contadores, brilho que segue o cursor nos cartões e
+ * avanço da linha do tempo do processo.
  */
-export function useRevela() {
+export function useEfeitosDaPagina() {
   useEffect(() => {
-    const alvos = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-revela]")
-    );
-    if (!alvos.length) return;
+    const reduzido = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const limpezas: (() => void)[] = [];
 
-    const reduzido = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    // Revelação ------------------------------------------------------------
+    const revelaveis =
+      document.querySelectorAll<HTMLElement>("[data-revela]");
 
     if (reduzido) {
-      alvos.forEach((el) => el.classList.add("visivel"));
-      return;
+      revelaveis.forEach((el) => el.classList.add("visivel"));
+    } else if (revelaveis.length) {
+      const olho = new IntersectionObserver(
+        (entradas) => {
+          entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+            entrada.target.classList.add("visivel");
+            olho.unobserve(entrada.target);
+          });
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
+      );
+      revelaveis.forEach((el) => {
+        el.style.setProperty(
+          "--atraso",
+          `${ESCALONAMENTO * (Number(el.dataset.revela) || 0)}ms`
+        );
+        olho.observe(el);
+      });
+      limpezas.push(() => olho.disconnect());
     }
 
-    const observador = new IntersectionObserver(
-      (entradas) => {
-        entradas.forEach((entrada) => {
-          if (!entrada.isIntersecting) return;
-          const el = entrada.target as HTMLElement;
-          const indice = Number(el.dataset.revela) || 0;
-          el.style.setProperty("--atraso", `${indice * ESCALONAMENTO}ms`);
-          el.classList.add("visivel");
-          observador.unobserve(el);
-        });
-      },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 }
-    );
+    // Brilho que segue o cursor nos cartões --------------------------------
+    if (!reduzido && matchMedia("(hover: hover)").matches) {
+      document.querySelectorAll<HTMLElement>(".cartao").forEach((cartao) => {
+        const aoMover = (e: PointerEvent) => {
+          const caixa = cartao.getBoundingClientRect();
+          cartao.style.setProperty("--mx", `${e.clientX - caixa.left}px`);
+          cartao.style.setProperty("--my", `${e.clientY - caixa.top}px`);
+        };
+        cartao.addEventListener("pointermove", aoMover);
+        limpezas.push(() =>
+          cartao.removeEventListener("pointermove", aoMover)
+        );
+      });
+    }
 
-    alvos.forEach((el) => observador.observe(el));
-    return () => observador.disconnect();
-  }, []);
-}
-
-/** Anima os contadores [data-conta] de 0 até o valor final. */
-export function useContadores() {
-  useEffect(() => {
-    const alvos = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-conta]")
-    );
-    if (!alvos.length) return;
-
-    const reduzido = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    const quadros: number[] = [];
-
-    const contar = (el: HTMLElement) => {
-      const destino = Number(el.dataset.conta) || 0;
-      if (reduzido) {
-        el.textContent = String(destino);
-        return;
-      }
-      const duracao = 1200;
-      const inicio = performance.now();
-      const passo = (agora: number) => {
-        const t = Math.min((agora - inicio) / duracao, 1);
-        const suave = 1 - Math.pow(1 - t, 3);
-        el.textContent = String(Math.round(destino * suave));
-        if (t < 1) quadros.push(requestAnimationFrame(passo));
+    // Contadores -----------------------------------------------------------
+    const contadores = document.querySelectorAll<HTMLElement>("[data-conta]");
+    if (contadores.length) {
+      const contar = (el: HTMLElement) => {
+        const destino = Number(el.dataset.conta);
+        if (Number.isNaN(destino)) return;
+        if (reduzido) {
+          el.textContent = String(destino);
+          return;
+        }
+        const inicio = performance.now();
+        const passo = (agora: number) => {
+          const t = Math.min((agora - inicio) / 1400, 1);
+          el.textContent = String(
+            Math.round(destino * (1 - Math.pow(1 - t, 3)))
+          );
+          if (t < 1) requestAnimationFrame(passo);
+        };
+        requestAnimationFrame(passo);
       };
-      quadros.push(requestAnimationFrame(passo));
-    };
 
-    const observador = new IntersectionObserver(
-      (entradas) => {
-        entradas.forEach((entrada) => {
-          if (!entrada.isIntersecting) return;
-          contar(entrada.target as HTMLElement);
-          observador.unobserve(entrada.target);
-        });
-      },
-      { threshold: 0.5 }
-    );
+      const olho = new IntersectionObserver(
+        (entradas) =>
+          entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+            contar(entrada.target as HTMLElement);
+            olho.unobserve(entrada.target);
+          }),
+        { threshold: 0.6 }
+      );
+      contadores.forEach((el) => olho.observe(el));
+      limpezas.push(() => olho.disconnect());
+    }
 
-    alvos.forEach((el) => observador.observe(el));
-    return () => {
-      observador.disconnect();
-      quadros.forEach(cancelAnimationFrame);
-    };
+    // Linha do tempo do processo -------------------------------------------
+    const trilha = document.querySelector(".trilha");
+    if (trilha) {
+      const fio = trilha.querySelector<HTMLElement>(".trilha__fio");
+      const passos = [...trilha.querySelectorAll<HTMLElement>(".passo")];
+      const olho = new IntersectionObserver(
+        (entradas) => {
+          entradas.forEach((e) =>
+            e.target.classList.toggle("ativo", e.isIntersecting)
+          );
+          const ativos = passos.filter((p) => p.classList.contains("ativo"));
+          if (fio && ativos.length) {
+            const ultimo = passos.indexOf(ativos[ativos.length - 1]);
+            fio.style.setProperty(
+              "--avanco",
+              String((ultimo + 1) / passos.length)
+            );
+          }
+        },
+        { rootMargin: "-38% 0px -38% 0px" }
+      );
+      passos.forEach((p) => olho.observe(p));
+      limpezas.push(() => olho.disconnect());
+    }
+
+    return () => limpezas.forEach((f) => f());
   }, []);
 }

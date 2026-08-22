@@ -1,6 +1,6 @@
 import { Cabecalho } from "./Cabecalho";
 import { Rodape } from "./Rodape";
-import { useContadores, useRevela } from "./ganchos";
+import { useEfeitosDaPagina } from "./ganchos";
 import { Heroi } from "./secoes/Heroi";
 import { Numeros } from "./secoes/Numeros";
 import { Diagnostico } from "./secoes/Diagnostico";
@@ -13,8 +13,7 @@ import { Chamada } from "./secoes/Chamada";
 import "./estilo.css";
 
 export default function CalangoApp() {
-  useRevela();
-  useContadores();
+  useEfeitosDaPagina();
 
   return (
     <>

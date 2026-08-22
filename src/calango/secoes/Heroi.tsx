@@ -1,34 +1,100 @@
+import { useEffect, useRef, useState } from "react";
 import { SetaDireita } from "../Icones";
+import { BLOCOS, CLASSES } from "../terminal";
+import { esperarOcioso, esperarPerto, suportaCenas3D } from "../tres/qualidade";
 
-const BLOCOS: { linha: string; cor?: string }[][] = [
-  [
-    { linha: "$ git checkout -b ordens-de-servico" },
-    { linha: "Switched to a new branch 'ordens-de-servico'" },
-    { linha: "$ cat requisitos.md" },
-    { linha: "# 12 regras levantadas com quem usa", cor: "c-fraco" },
-    { linha: "# 9 telas mapeadas, 3 integrações", cor: "c-fraco" },
-  ],
-  [
-    { linha: "$ npm run dev" },
-    { linha: "▲ pronto em 1.4s", cor: "c-ocre" },
-    { linha: "  app/ordens/page.tsx      ✓", cor: "c-verde" },
-    { linha: "  lib/regras/estoque.ts    ✓", cor: "c-verde" },
-    { linha: "  lib/regras/prazo.ts      ✓", cor: "c-verde" },
-  ],
-  [
-    { linha: "$ npm test" },
-    { linha: " PASS  lib/regras/estoque.test.ts", cor: "c-verde" },
-    { linha: " PASS  lib/regras/prazo.test.ts", cor: "c-verde" },
-    { linha: " 2 suítes · 34 testes · 1.9s" },
-  ],
-  [
-    { linha: '$ git commit -m "entrega 3: ordens"' },
-    { linha: " 14 arquivos alterados" },
-    { linha: "$ vercel --prod" },
-    { linha: " ● build 42s", cor: "c-ocre" },
-    { linha: " ● sistema no ar", cor: "c-verde" },
-  ],
-];
+/** Malha de arame que ondula atrás do herói. */
+function Terreno() {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !suportaCenas3D()) return;
+
+    let vivo = true;
+    let destruir: (() => void) | undefined;
+
+    (async () => {
+      await esperarOcioso();
+      if (!vivo) return;
+      const { montarTerreno } = await import("../tres/heroiTerreno");
+      if (!vivo || !ref.current) return;
+      destruir = montarTerreno(ref.current);
+    })();
+
+    return () => {
+      vivo = false;
+      destruir?.();
+    };
+  }, []);
+
+  return <div className="heroi-3d" ref={ref} aria-hidden="true" />;
+}
+
+/**
+ * Janela de terminal em 3D. Enquanto a cena não sobe, fica no ar a mesma
+ * janela em HTML — que é também o que aparelho fraco e leitor de tela recebem.
+ */
+function Janela() {
+  const palcoRef = useRef<HTMLDivElement | null>(null);
+  const [pronto, setPronto] = useState(false);
+
+  useEffect(() => {
+    const el = palcoRef.current;
+    if (!el || !suportaCenas3D()) return;
+
+    let vivo = true;
+    let destruir: (() => void) | undefined;
+
+    (async () => {
+      await esperarPerto(el);
+      await esperarOcioso();
+      if (!vivo) return;
+
+      const { montarJanela } = await import("../tres/janelaTerminal");
+      if (!vivo || !palcoRef.current) return;
+
+      destruir = await montarJanela(palcoRef.current);
+      if (!vivo) {
+        destruir?.();
+        return;
+      }
+      setPronto(true);
+    })();
+
+    return () => {
+      vivo = false;
+      destruir?.();
+    };
+  }, []);
+
+  return (
+    <div className={pronto ? "janela-3d pronto" : "janela-3d"}>
+      <div className="janela-3d__palco" ref={palcoRef} aria-hidden="true" />
+      <div className="janela janela-3d__texto">
+        <div className="janela__topo">
+          <i />
+          <i />
+          <i />
+          <span>entrega — calango lab</span>
+        </div>
+        <div className="janela__corpo">
+          {BLOCOS.map((bloco) => (
+            <div key={bloco.arquivo} style={{ marginBottom: "var(--s3)" }}>
+              {bloco.linhas
+                .filter((l) => l.t)
+                .map((l, i) => (
+                  <div key={i} className={CLASSES[l.tipo]}>
+                    {l.t}
+                  </div>
+                ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Heroi() {
   return (
@@ -36,7 +102,7 @@ export function Heroi() {
       <div className="ambiente ambiente--topo">
         <div className="veu" />
         <div className="grade-fundo" />
-        <div className="heroi-3d" aria-hidden="true" />
+        <Terreno />
         <div className="aurora aurora--verde" />
         <div className="aurora aurora--ocre" />
         <div className="veu-texto" />
@@ -99,28 +165,7 @@ export function Heroi() {
               data-entrada="true"
               style={{ "--atraso": "210ms" } as React.CSSProperties}
             >
-              <div className="janela-3d">
-                <div className="janela-3d__palco" aria-hidden="true" />
-                <div className="janela janela-3d__texto">
-                  <div className="janela__topo">
-                    <i />
-                    <i />
-                    <i />
-                    <span>entrega — calango lab</span>
-                  </div>
-                  <div className="janela__corpo">
-                    {BLOCOS.map((bloco, i) => (
-                      <div key={i} style={{ marginBottom: "var(--s3)" }}>
-                        {bloco.map((l, j) => (
-                          <div key={j} className={l.cor}>
-                            {l.linha}
-                          </div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <Janela />
             </div>
           </div>
         </div>

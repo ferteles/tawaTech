@@ -6,7 +6,7 @@ export function Cabecalho() {
   const [colado, setColado] = useState(false);
 
   useEffect(() => {
-    const aoRolar = () => setColado(window.scrollY > 12);
+    const aoRolar = () => setColado(window.scrollY > 72);
     aoRolar();
     window.addEventListener("scroll", aoRolar, { passive: true });
     return () => window.removeEventListener("scroll", aoRolar);
