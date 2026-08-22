@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import Clarity from "@microsoft/clarity";
+import CalangoApp from "./calango/CalangoApp.tsx";
 
-Clarity.init("x65sj6mgxy");
+// A folha de estilo do site usa `.js [data-revela]` para esconder os blocos
+// antes da revelação. Sem JS, o conteúdo aparece normalmente.
+document.documentElement.classList.add("js");
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById("root")!).render(<CalangoApp />);
