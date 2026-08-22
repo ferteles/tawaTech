@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://v0.calangolab.com.br/sitemap.xml
+Sitemap: https://tauatech.com/sitemap.xml

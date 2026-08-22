@@ -17,13 +17,12 @@ export function Cabecalho() {
       <div className="container">
         <a className="marca" href="/">
           <img
-            src="/img/calango.png"
-            alt="Calango Lab — início"
-            width={128}
-            height={158}
+            src="/logo.svg"
+            alt="TauáTech — início"
+            width={398}
+            height={191}
             decoding="async"
           />
-          <b>Calango Lab</b>
         </a>
 
         <button

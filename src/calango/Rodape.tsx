@@ -8,14 +8,13 @@ export function Rodape() {
           <div className="rodape__marca">
             <a className="marca" href="/">
               <img
-                src="/img/calango.png"
+                src="/logo.svg"
                 alt=""
-                width={128}
-                height={158}
+                width={398}
+                height={191}
                 loading="lazy"
                 decoding="async"
               />
-              <b>Calango Lab</b>
             </a>
             <p>Sites, lojas e os sistemas que os sustentam.</p>
             <a className="rodape__disponivel" href={WHATSAPP}>
