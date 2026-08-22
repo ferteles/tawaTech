@@ -17,7 +17,7 @@ export function montarTerreno(el: HTMLElement): () => void {
   const reduzido = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const cena = new THREE.Scene();
-  cena.fog = new THREE.Fog(0x10140e, 9, 27);
+  cena.fog = new THREE.Fog(0x0a0a0a, 9, 27);
 
   const camera = new THREE.PerspectiveCamera(52, 16 / 9, 0.1, 100);
   camera.position.set(0, 3.4, 8.6);
@@ -69,9 +69,9 @@ export function montarTerreno(el: HTMLElement): () => void {
   const alvo = new THREE.Vector3();
   const toque = { x: 0, z: 0, forca: 0 };
 
-  const corBaixa = new THREE.Color(0x1c2a12);
-  const corMedia = new THREE.Color(0x8fd14f);
-  const corAlta = new THREE.Color(0xdff3c4);
+  const corBaixa = new THREE.Color(0x2a0000);
+  const corMedia = new THREE.Color(0xff0000);
+  const corAlta = new THREE.Color(0xffd6d6);
   const cor = new THREE.Color();
 
   const nascimento = performance.now();
@@ -119,6 +119,10 @@ export function montarTerreno(el: HTMLElement): () => void {
     posicoes.needsUpdate = true;
     geometria.attributes.color.needsUpdate = true;
   };
+
+  // Sem isto o primeiro quadro sai preto: as cores dos vértices só nascem
+  // no primeiro `atualizar`, e o laço de animação ainda não começou.
+  atualizar(0);
 
   const palco = criarPalco({
     el,

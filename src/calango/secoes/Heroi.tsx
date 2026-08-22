@@ -103,8 +103,8 @@ export function Heroi() {
         <div className="veu" />
         <div className="grade-fundo" />
         <Terreno />
-        <div className="aurora aurora--verde" />
-        <div className="aurora aurora--ocre" />
+        <div className="aurora aurora--marca" />
+        <div className="aurora aurora--apoio" />
         <div className="veu-texto" />
       </div>
 

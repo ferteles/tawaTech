@@ -64,12 +64,12 @@ export async function montarJanela(el: HTMLElement): Promise<() => void> {
     ctx.beginPath();
     ctx.roundRect(1, 1, l - 2, a - 2, canto);
     const fundo = ctx.createLinearGradient(0, 0, 0, a);
-    fundo.addColorStop(0, "#1E241A");
-    fundo.addColorStop(1, "#161B13");
+    fundo.addColorStop(0, "#1a1a1a");
+    fundo.addColorStop(1, "#141414");
     ctx.fillStyle = fundo;
     ctx.fill();
     ctx.lineWidth = 1.5 * dpr;
-    ctx.strokeStyle = "rgba(237,239,233,.20)";
+    ctx.strokeStyle = "rgba(255,255,255,.20)";
     ctx.stroke();
 
     const barra = 58 * dpr;
@@ -79,11 +79,11 @@ export async function montarJanela(el: HTMLElement): Promise<() => void> {
     ctx.clip();
     ctx.fillStyle = "rgba(0,0,0,.22)";
     ctx.fillRect(0, 0, l, barra);
-    ctx.fillStyle = "rgba(237,239,233,.10)";
+    ctx.fillStyle = "rgba(255,255,255,.10)";
     ctx.fillRect(0, barra, l, dpr);
     ctx.restore();
 
-    ctx.fillStyle = "rgba(237,239,233,.20)";
+    ctx.fillStyle = "rgba(255,255,255,.20)";
     [26, 48, 70].forEach((x) => {
       ctx.beginPath();
       ctx.arc(x * dpr, barra / 2, 5.5 * dpr, 0, Math.PI * 2);
@@ -92,7 +92,7 @@ export async function montarJanela(el: HTMLElement): Promise<() => void> {
 
     const atual = BLOCOS[bloco];
     ctx.font = `${13 * dpr}px ${fonte}`;
-    ctx.fillStyle = "#6B735F";
+    ctx.fillStyle = "#666666";
     ctx.textBaseline = "middle";
     ctx.fillText(`${atual.arquivo} — calango lab`, 96 * dpr, barra / 2);
 
@@ -110,7 +110,7 @@ export async function montarJanela(el: HTMLElement): Promise<() => void> {
       let x = margem;
 
       if (linha.tipo === "cmd" && linha.t.startsWith("$")) {
-        ctx.fillStyle = "#8FD14F";
+        ctx.fillStyle = "#FF0000";
         ctx.fillText("$", x, linhaBase);
         x += ctx.measureText("$ ").width;
         const resto = linha.t.slice(1).trimStart();
@@ -124,7 +124,7 @@ export async function montarJanela(el: HTMLElement): Promise<() => void> {
       }
 
       if (ultima && pisca < 0.5) {
-        ctx.fillStyle = "#8FD14F";
+        ctx.fillStyle = "#FF0000";
         ctx.fillRect(x + 3 * dpr, linhaBase - 0.82 * corpo, 0.55 * corpo, 1.05 * corpo);
       }
 
@@ -142,7 +142,7 @@ export async function montarJanela(el: HTMLElement): Promise<() => void> {
   cena.add(janela);
 
   const materialBrilho = new THREE.MeshBasicMaterial({
-    color: 0x8fd14f,
+    color: 0xff0000,
     transparent: true,
     opacity: 0.1,
     blending: THREE.AdditiveBlending,

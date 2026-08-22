@@ -6,17 +6,17 @@ export type BlocoTerminal = {
 };
 
 export const CORES: Record<TipoLinha, string> = {
-  cmd: "#EDEFE9",
-  saida: "#9BA394",
-  nota: "#6B735F",
-  ok: "#8FD14F",
-  destaque: "#E8A93A",
+  cmd: "#FFFFFF",
+  saida: "#999999",
+  nota: "#666666",
+  ok: "#FF0000",
+  destaque: "#999999",
 };
 
 /** Classe CSS equivalente à cor, usada na versão em HTML da janela. */
 export const CLASSES: Partial<Record<TipoLinha, string>> = {
-  ok: "c-verde",
-  destaque: "c-ocre",
+  ok: "c-ok",
+  destaque: "c-destaque",
   nota: "c-fraco",
 };
 

@@ -43,7 +43,7 @@ const LARGURA_3: Cartao[] = [
   },
   {
     icone: <Janela />,
-    rot: { texto: "Nicho pouco disputado", cor: "var(--ocre)" },
+    rot: { texto: "Nicho pouco disputado", cor: "var(--cinza)" },
     titulo: "Resgate de sistema",
     texto:
       "Site ou sistema rodando sem documentação e sem quem faça manutenção. Auditamos, documentamos e dizemos se vale corrigir, migrar ou reconstruir.",
@@ -80,7 +80,7 @@ export function Servicos() {
             <div className="cartao__icone">
               <Carrinho />
             </div>
-            <span className="rot rot--verde">Carro-chefe</span>
+            <span className="rot rot--marca">Carro-chefe</span>
             <h3>E-commerce</h3>
             <p>
               Loja virtual que não para na vitrine: pagamento, frete e estoque
@@ -119,7 +119,7 @@ export function Servicos() {
             <div className="cartao__icone">
               <Faisca />
             </div>
-            <span className="rot rot--verde">Novo</span>
+            <span className="rot rot--marca">Novo</span>
             <h3 style={{ fontSize: "var(--t-xl)" }}>Automação e IA</h3>
             <p>
               O repetitivo sai da mesa: triagem, extração de documento,

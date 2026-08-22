@@ -4,11 +4,11 @@ import { ETAPAS } from "../etapas";
 import { criarPalco } from "./palco";
 import { qualidade } from "./qualidade";
 
-const COR_NO = 0x33421f;
-const COR_NO_ATIVO = 0x8fd14f;
-const EMISSIVA = 0x0e1408;
-const EMISSIVA_ATIVA = 0x1d3110;
-const EMISSIVA_SOBRE = 0x16240c;
+const COR_NO = 0x3a1414;
+const COR_NO_ATIVO = 0xff0000;
+const EMISSIVA = 0x140505;
+const EMISSIVA_ATIVA = 0x3d0000;
+const EMISSIVA_SOBRE = 0x2a0808;
 
 const TOTAL_PARTICULAS = 70;
 const OCIOSO_MS = 5000;
@@ -33,7 +33,7 @@ export function montarFluxo({
   const reduzido = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const cena = new THREE.Scene();
-  cena.fog = new THREE.Fog(0x10140e, 13, 28);
+  cena.fog = new THREE.Fog(0x0a0a0a, 13, 28);
 
   const camera = new THREE.PerspectiveCamera(
     42,
@@ -67,14 +67,14 @@ export function montarFluxo({
   const grupo = new THREE.Group();
   cena.add(grupo);
 
-  cena.add(new THREE.AmbientLight(0x9bb98a, 0.5));
-  const luzPrincipal = new THREE.DirectionalLight(0xdfeccb, 1.15);
+  cena.add(new THREE.AmbientLight(0xb0a4a4, 0.5));
+  const luzPrincipal = new THREE.DirectionalLight(0xf2ebeb, 1.15);
   luzPrincipal.position.set(4, 7, 6);
   cena.add(luzPrincipal);
-  const luzDeApoio = new THREE.DirectionalLight(0x8fd14f, 0.5);
+  const luzDeApoio = new THREE.DirectionalLight(0xff0000, 0.5);
   luzDeApoio.position.set(-6, -3, -5);
   cena.add(luzDeApoio);
-  const luzDoNo = new THREE.PointLight(0x8fd14f, 6, 13, 2);
+  const luzDoNo = new THREE.PointLight(0xff0000, 6, 13, 2);
   cena.add(luzDoNo);
 
   const pontos = ETAPAS.map((e) => new THREE.Vector3(...e.pos));
@@ -83,7 +83,7 @@ export function montarFluxo({
 
   const tubo = new THREE.Mesh(
     new THREE.TubeGeometry(curva, qualidade().tubo, 0.035, 10, false),
-    new THREE.MeshBasicMaterial({ color: 0x3d5a28 })
+    new THREE.MeshBasicMaterial({ color: 0x5a1414 })
   );
   grupo.add(tubo);
 
@@ -91,7 +91,7 @@ export function montarFluxo({
   const trecho = new THREE.Mesh(
     new THREE.BufferGeometry(),
     new THREE.MeshBasicMaterial({
-      color: 0x8fd14f,
+      color: 0xff0000,
       transparent: true,
       opacity: 0.85,
     })
@@ -111,7 +111,7 @@ export function montarFluxo({
   const particulas = new THREE.Points(
     geoParticulas,
     new THREE.PointsMaterial({
-      color: 0xa8e06a,
+      color: 0xff3b3b,
       size: 0.085,
       transparent: true,
       opacity: 0.9,
@@ -138,7 +138,7 @@ export function montarFluxo({
   const pulso = new THREE.Mesh(
     new THREE.SphereGeometry(0.11, 16, 16),
     new THREE.MeshBasicMaterial({
-      color: 0xdff3c4,
+      color: 0xffd6d6,
       transparent: true,
       blending: THREE.AdditiveBlending,
     })
@@ -163,7 +163,7 @@ export function montarFluxo({
     const aro = new THREE.Mesh(
       new THREE.TorusGeometry(0.85, 0.012, 8, 64),
       new THREE.MeshBasicMaterial({
-        color: 0x8fd14f,
+        color: 0xff0000,
         transparent: true,
         opacity: 0,
       })
@@ -176,7 +176,7 @@ export function montarFluxo({
     return no;
   });
 
-  const grade = new THREE.GridHelper(36, 36, 0x2a3520, 0x1c2416);
+  const grade = new THREE.GridHelper(36, 36, 0x2a2020, 0x1c1616);
   grade.position.y = -2.7;
   const materialGrade = grade.material as THREE.Material;
   materialGrade.transparent = true;
