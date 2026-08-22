@@ -1,6 +1,7 @@
 import { Cabecalho } from "./Cabecalho";
 import { Rodape } from "./Rodape";
 import { useEfeitosDaPagina } from "./ganchos";
+import { useTransicaoDeLinks } from "./transicao";
 import { Heroi } from "./secoes/Heroi";
 import { Numeros } from "./secoes/Numeros";
 import { Diagnostico } from "./secoes/Diagnostico";
@@ -11,9 +12,11 @@ import { Tecnologias } from "./secoes/Tecnologias";
 import { Sobre } from "./secoes/Sobre";
 import { Chamada } from "./secoes/Chamada";
 import "./estilo.css";
+import "./transicao.css";
 
 export default function CalangoApp() {
   useEfeitosDaPagina();
+  useTransicaoDeLinks();
 
   return (
     <>

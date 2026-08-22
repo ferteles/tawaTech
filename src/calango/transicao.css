@@ -1,0 +1,17 @@
+/* Esmaecimento de saída, para os navegadores que ainda não fazem a
+   transição entre documentos sozinhos. A duração acompanha SAIDA_MS. */
+html.saindo body {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.saindo body {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
